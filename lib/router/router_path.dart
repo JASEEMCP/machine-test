@@ -1,25 +1,19 @@
-
-
 import 'package:app/main.dart';
 
 class ScreenPath {
-
   static const splash = '/';
+
   /// Auth routes
   static const login = '/login';
-  static  signupOtp(String phn) => '/login/otp?phn=$phn';
+  static signupOtp(String phn) => '/login/otp?phn=$phn';
   static register() => _appendIdIntoCurrentPath('/phone');
   static const forgotPwd = '/forgot';
   static resetPwd(String email) => _appendIdIntoCurrentPath('/reset?e=$email');
 
   /// Main routes
-  
-  static  chat() => _appendIdIntoCurrentPath('/chat');
+
+  static chat() => _appendIdIntoCurrentPath('/chat');
   static const messages = '/messages';
-
-
-
-
 
   ///Appending path
   static _appendIdIntoCurrentPath(String path) {

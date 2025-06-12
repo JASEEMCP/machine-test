@@ -55,8 +55,8 @@ class MessagesScreen extends StatelessWidget {
                         ),
                         CustomText(
                           txt: 'Name',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w300,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w200,
                           textAlign: TextAlign.center,
                         ),
                       ],

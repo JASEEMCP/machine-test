@@ -2,8 +2,6 @@ import 'package:injectable/injectable.dart';
 import 'package:app/main.dart';
 import 'package:app/router/router_path.dart';
 
-
-
 @lazySingleton
 class AppLogic {
   ///This used for redirecting
@@ -20,10 +18,8 @@ class AppLogic {
 
       ///Flagging bootstrap
       isBootStrapComplete = true;
-      
- 
+
       appRouter.go(ScreenPath.login);
-      
     } catch (e) {
       //appRouter.go(ScreenPath.login);
     }

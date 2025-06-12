@@ -107,6 +107,5 @@ class DioClient {
     final refreshToken = pref.token.value.refreshToken ?? '';
     final accessToken = pref.token.value.accessToken ?? '';
     return refreshToken.isNotEmpty && accessToken.isNotEmpty;
-    
   }
 }

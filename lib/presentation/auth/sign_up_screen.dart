@@ -1,3 +1,4 @@
+import 'package:app/application/auth/login_cubit/login_cubit.dart';
 import 'package:app/presentation/widget/custom_button.dart';
 import 'package:app/presentation/widget/custom_circle_btn.dart';
 import 'package:app/presentation/widget/custom_text_field_widget.dart';
@@ -5,7 +6,7 @@ import 'package:app/presentation/widget/helper_widget.dart';
 import 'package:app/resource/utils/common_lib.dart';
 
 class ScreenSignup extends StatelessWidget {
-   ScreenSignup({super.key});
+  ScreenSignup({super.key});
 
   final _phnController = TextEditingController();
 
@@ -70,7 +71,13 @@ class ScreenSignup extends StatelessWidget {
               ),
               child: CustomButton(
                 onTap: () {
-                  context.go(ScreenPath.signupOtp(_phnController.text.trim()));
+                  if(_phnController.text.trim().isNotEmpty){
+                    context.read<LoginCubit>().loginUser(_phnController.text.trim());
+                  }
+                  else{
+                    context.showCustomSnackBar('Enter Phone Number');
+                  }
+                  // context.go(ScreenPath.signupOtp(_phnController.text.trim()));
                 },
                 text: 'Next',
                 bgColor: context.theme.kPink,

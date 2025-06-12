@@ -3,14 +3,12 @@ import 'package:injectable/injectable.dart';
 import 'package:app/domain/auth/token.dart';
 import 'package:app/resource/db/load_and_save.dart';
 
-
 @LazySingleton()
 class PrefInfo with LoadAndSaveMixin {
   late final token = ValueNotifier<Token>(
     Token(
       accessToken: null,
       refreshToken: null,
-      
     ),
   )..addListener(save);
 
@@ -18,7 +16,6 @@ class PrefInfo with LoadAndSaveMixin {
   void copyFromJson(Map<String, dynamic> data) {
     token.value.accessToken = data['access_token'] ?? '';
     token.value.refreshToken = data['refresh_token'] ?? '';
-   
   }
 
   @override
@@ -29,9 +26,6 @@ class PrefInfo with LoadAndSaveMixin {
     return {
       'access_token': token.value.accessToken,
       'refresh_token': token.value.refreshToken,
-      
     };
   }
-
-  
 }

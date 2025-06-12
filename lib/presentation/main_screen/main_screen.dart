@@ -17,7 +17,6 @@ class _ScreenMainState extends State<ScreenMain> {
   Widget build(BuildContext context) {
     //final inset = $style.insets;
     return Scaffold(
-      
       body: widget.child,
     );
   }

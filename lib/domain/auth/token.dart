@@ -8,12 +8,10 @@ class Token {
   String? refreshToken;
   @JsonKey(name: 'access_token')
   String? accessToken;
-  
 
   Token({
     this.refreshToken,
     this.accessToken,
-    
   });
 
   factory Token.fromJson(Map<String, dynamic> json) => _$TokenFromJson(json);
@@ -31,7 +29,6 @@ class Token {
     return Token(
       refreshToken: refreshToken ?? this.refreshToken,
       accessToken: accessToken ?? this.accessToken,
-      
     );
   }
 }

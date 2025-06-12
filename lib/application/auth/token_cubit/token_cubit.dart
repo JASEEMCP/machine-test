@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:app/domain/auth/token.dart';
 
-
 part 'token_state.dart';
 part 'token_cubit.freezed.dart';
 
@@ -53,7 +52,7 @@ class TokenCubit extends Cubit<TokenState> {
     //     appRouter.go(ScreenPath.login);
     //     emit(const TokenState.initial());
 
-        return null;
+    return null;
     //   },
     //   (token) {
     //     emit(TokenState.authorized(token));
