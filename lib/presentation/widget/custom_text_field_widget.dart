@@ -97,7 +97,7 @@ class CustomTextFieldWidget2 extends StatelessWidget {
     this.suffix,
     this.type,
     this.inputFormatters,
-    this.autofocus,
+    this.autofocus, this.radius, this.textAlign,
   });
 
   final bool? obscureText;
@@ -108,6 +108,8 @@ class CustomTextFieldWidget2 extends StatelessWidget {
   final TextInputType? type;
   final List<TextInputFormatter>? inputFormatters;
   final bool? autofocus;
+  final double? radius;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +126,7 @@ class CustomTextFieldWidget2 extends StatelessWidget {
         // ),
         // Gap(inset.xxs),
         TextFormField(
-          textAlign: TextAlign.center,
+          textAlign: textAlign?? TextAlign.center,
           autofocus: autofocus ?? false,
           inputFormatters: inputFormatters,
           keyboardType: type ?? TextInputType.number,
@@ -147,22 +149,23 @@ class CustomTextFieldWidget2 extends StatelessWidget {
             fillColor: Colors.white,
             hintStyle: $style.text.textN14.copyWith(),
             contentPadding: const EdgeInsets.all(12),
-            border: _applyBorder(context),
-            focusedBorder: _applyBorder(context),
-            enabledBorder: _applyBorder(context),
-            errorBorder: _applyBorder(context),
+            border: _applyBorder(context, radius),
+            focusedBorder: _applyBorder(context,radius),
+            enabledBorder: _applyBorder(context,radius),
+            errorBorder: _applyBorder(context,  radius),
           ),
         ),
       ],
     );
   }
 
-  OutlineInputBorder _applyBorder(BuildContext context) {
+  OutlineInputBorder _applyBorder(BuildContext context,double? radius) {
     return OutlineInputBorder(
       borderSide: BorderSide(
         color: Colors.black12,
       ),
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(radius??8),
     );
   }
 }
+

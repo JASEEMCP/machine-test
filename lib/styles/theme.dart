@@ -46,6 +46,13 @@ class AppTheme {
   ThemeData get themeData {
     var t = ThemeData(
       useMaterial3: true,
+      scaffoldBackgroundColor: kWhite,
+      appBarTheme: AppBarTheme(
+        backgroundColor: isDark ? kBlack : kWhite,
+        foregroundColor: isDark ? kWhite : kBlack,
+        centerTitle: false,
+        elevation: 0,
+      ),
     );
     return t.copyWith(
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,

@@ -122,7 +122,7 @@ class ScreenLogin extends StatelessWidget {
                       ],
                     ),
                     onTap: () {
-                      context.go(ScreenPath.register());
+                      context.go(ScreenPath.messages);
                     },
                   ),
                   Gap(inset.sm),

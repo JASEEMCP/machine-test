@@ -1,7 +1,8 @@
 import 'package:app/presentation/auth/login_screen.dart';
 import 'package:app/presentation/auth/otp_screen.dart';
 import 'package:app/presentation/auth/sign_up_screen.dart';
-import 'package:app/presentation/home/home_screen.dart';
+import 'package:app/presentation/home/chat_screen.dart';
+import 'package:app/presentation/home/messages_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:app/presentation/main_screen/main_screen.dart';
@@ -79,17 +80,27 @@ class AppRouter {
         },
         routes: [
           GoRoute(
-            path: ScreenPath.home,
+            path: ScreenPath.messages,
             parentNavigatorKey: _shellNavigatorKey,
             pageBuilder: (context, state) {
               return CustomTransitionPage(
-                child: HomeScreen(),
+                child: MessagesScreen(),
                 transitionsBuilder: useNavChangeTransition,
               );
             },
+            routes: [
+              GoRoute(
+                path: ScreenPath.chat,
+                parentNavigatorKey: _rootNavigatorKey,
+                pageBuilder: (context, state) {
+                  return CustomTransitionPage(
+                    child: ChatScreen(),
+                    transitionsBuilder: useNavChangeTransition,
+                  );
+                },
+              ),
+            ],
           ),
-
-          /// Profile
         ],
       ),
     ],

@@ -135,7 +135,9 @@ class OtpScreen extends StatelessWidget {
                 bottom: inset.lg,
               ),
               child: CustomButton(
-                onTap: () {},
+                onTap: () {
+                  context.go(ScreenPath.messages);
+                },
                 text: 'Verify',
                 bgColor: context.theme.kPink,
                 textColor: context.theme.kWhite,

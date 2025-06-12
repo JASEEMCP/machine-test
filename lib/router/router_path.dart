@@ -14,8 +14,8 @@ class ScreenPath {
 
   /// Main routes
   
-  static const home = '/home';
-  static const expense = '/expense';
+  static const chat = '/chat';
+  static const messages = '/messages';
 
 
 
