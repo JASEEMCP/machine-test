@@ -159,13 +159,11 @@ class ChatScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: 'Type a message...',
                         filled: true,
+                        hintStyle: $style.text.textN14,
                         fillColor: Colors.grey[200],
                         suffixIcon: IconButton(
                           onPressed: () {},
-                          icon: Icon(
-                            Icons.send,
-                            color: context.theme.kPink,
-                          ),
+                          icon: Image.asset('assets/send.png'),
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),

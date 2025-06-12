@@ -97,7 +97,9 @@ class CustomTextFieldWidget2 extends StatelessWidget {
     this.suffix,
     this.type,
     this.inputFormatters,
-    this.autofocus, this.radius, this.textAlign,
+    this.autofocus,
+    this.radius,
+    this.textAlign,
   });
 
   final bool? obscureText;
@@ -126,7 +128,7 @@ class CustomTextFieldWidget2 extends StatelessWidget {
         // ),
         // Gap(inset.xxs),
         TextFormField(
-          textAlign: textAlign?? TextAlign.center,
+          textAlign: textAlign ?? TextAlign.center,
           autofocus: autofocus ?? false,
           inputFormatters: inputFormatters,
           keyboardType: type ?? TextInputType.number,
@@ -135,10 +137,10 @@ class CustomTextFieldWidget2 extends StatelessWidget {
           validator: validator,
           style: $style.text.textN14.copyWith(),
           onChanged: (value) {
-            if (value.length == 1 && value.isNotEmpty) {
+            if (value.length == 1 && value.isNotEmpty && autofocus != null) {
               FocusScope.of(context).nextFocus();
               // Perform any action when the text changes
-            } else if (value.isEmpty) {
+            } else if (value.isEmpty && autofocus != null) {
               FocusScope.of(context).previousFocus();
             }
           },
@@ -150,22 +152,21 @@ class CustomTextFieldWidget2 extends StatelessWidget {
             hintStyle: $style.text.textN14.copyWith(),
             contentPadding: const EdgeInsets.all(12),
             border: _applyBorder(context, radius),
-            focusedBorder: _applyBorder(context,radius),
-            enabledBorder: _applyBorder(context,radius),
-            errorBorder: _applyBorder(context,  radius),
+            focusedBorder: _applyBorder(context, radius),
+            enabledBorder: _applyBorder(context, radius),
+            errorBorder: _applyBorder(context, radius),
           ),
         ),
       ],
     );
   }
 
-  OutlineInputBorder _applyBorder(BuildContext context,double? radius) {
+  OutlineInputBorder _applyBorder(BuildContext context, double? radius) {
     return OutlineInputBorder(
       borderSide: BorderSide(
         color: Colors.black12,
       ),
-      borderRadius: BorderRadius.circular(radius??8),
+      borderRadius: BorderRadius.circular(radius ?? 8),
     );
   }
 }
-

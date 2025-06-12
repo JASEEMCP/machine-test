@@ -38,7 +38,8 @@ class CustomCircleBtn extends StatelessWidget {
           //       ),
           color: context.theme.kWhite,
         ),
-        child: Icon(icon ?? Icons.arrow_back, color: Colors.black87),
+        child: Icon(icon ?? Icons.arrow_back,
+            color: Colors.black.withValues(alpha: 0.7)),
       ),
     );
   }
