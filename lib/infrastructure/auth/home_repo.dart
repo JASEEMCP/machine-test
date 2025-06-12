@@ -1,4 +1,3 @@
-
 import 'package:app/domain/services/failure.dart';
 import 'package:app/domain/services/home_service.dart';
 import 'package:app/infrastructure/env/env.dart';
@@ -15,7 +14,7 @@ class HomeRepo implements HomeService {
       headers: {
         'Accept': 'application/vnd.api+json',
         'Content-Type': 'application/vnd.api+json',
-                'Authorization':
+        'Authorization':
             'Bearer 117|KfuqqNXivj5Kztyf8cqwU11XJXlpmraS0mayLqu58a3bf708'
       },
     ),
@@ -44,8 +43,7 @@ class HomeRepo implements HomeService {
   }
 
   @override
-  Future<Either<MainFailure, String>> getChatData(
-      ) async {
+  Future<Either<MainFailure, String>> getChatData() async {
     try {
       final response = await dio.post(
         EndPoints.verifyOtp,
