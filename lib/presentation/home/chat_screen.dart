@@ -32,9 +32,21 @@ class ChatScreen extends StatelessWidget {
                       txt: 'User Name',
                       fontWeight: FontWeight.bold,
                     ),
-                    CustomText(
-                      txt: 'Online',
-                      fontWeight: FontWeight.w400,
+                    Row(
+                      spacing: inset.xxs,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CustomText(
+                          txt: 'Online',
+                          color: Colors.black38,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        Icon(
+                          Icons.circle,
+                          color: Colors.greenAccent,
+                          size: 12,
+                        )
+                      ],
                     ),
                   ],
                 ),
