@@ -7,3 +7,11 @@ class LoginState with _$LoginState {
   const factory LoginState.success() = _Success;
   const factory LoginState.error() = _Error;
 }
+
+extension LoginStateX on LoginState{
+
+  bool  get isLoading => this is _Loading;
+  bool  get isError => this is _Error;
+  bool  get isSuccess => this is _Success;
+
+}

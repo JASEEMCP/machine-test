@@ -1,3 +1,4 @@
+import 'package:app/application/auth/verify_otp_cubit/verify_otp_cubit.dart';
 import 'package:app/presentation/widget/custom_button.dart';
 import 'package:app/presentation/widget/custom_circle_btn.dart';
 import 'package:app/presentation/widget/custom_text_field_widget.dart';
@@ -5,8 +6,11 @@ import 'package:app/presentation/widget/helper_widget.dart';
 import 'package:app/resource/utils/common_lib.dart';
 
 class OtpScreen extends StatelessWidget {
-  const OtpScreen({super.key, required this.phone});
+  OtpScreen({super.key, required this.phone});
   final String phone;
+
+  final List<TextEditingController> _textController =
+      List.generate(6, (_) => generateTextController());
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +76,7 @@ class OtpScreen extends StatelessWidget {
                         label: '',
                         autofocus: true,
                         type: TextInputType.phone,
+                        controller: _textController[0],
                       ),
                     ),
                     Expanded(
@@ -79,6 +84,7 @@ class OtpScreen extends StatelessWidget {
                         label: '',
                         autofocus: true,
                         type: TextInputType.phone,
+                        controller: _textController[1],
                       ),
                     ),
                     Expanded(
@@ -86,6 +92,7 @@ class OtpScreen extends StatelessWidget {
                         label: '',
                         autofocus: true,
                         type: TextInputType.phone,
+                        controller: _textController[2],
                       ),
                     ),
                     Expanded(
@@ -93,6 +100,7 @@ class OtpScreen extends StatelessWidget {
                         label: '',
                         autofocus: true,
                         type: TextInputType.phone,
+                        controller: _textController[3],
                       ),
                     ),
                     Expanded(
@@ -100,6 +108,7 @@ class OtpScreen extends StatelessWidget {
                         label: '',
                         autofocus: true,
                         type: TextInputType.phone,
+                        controller: _textController[4],
                       ),
                     ),
                     Expanded(
@@ -107,6 +116,7 @@ class OtpScreen extends StatelessWidget {
                         label: '',
                         autofocus: true,
                         type: TextInputType.phone,
+                        controller: _textController[5],
                       ),
                     ),
                   ],
@@ -136,7 +146,15 @@ class OtpScreen extends StatelessWidget {
               ),
               child: CustomButton(
                 onTap: () {
-                  context.go(ScreenPath.messages);
+                  String text = '';
+                  for (var x in _textController) {
+                    text += x.text;
+                  }
+
+                  context
+                      .read<VerifyOtpCubit>()
+                      .verifyOtp(phone.trim(), text.trim());
+                  // context.go(ScreenPath.messages);
                 },
                 text: 'Verify',
                 bgColor: context.theme.kPink,

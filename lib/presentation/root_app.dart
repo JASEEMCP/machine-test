@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:app/application/common/theme_cubit/theme_cubit.dart';
-import 'package:app/infrastructure/env/env.dart';
 import 'package:app/resource/register_cubit.dart';
 import 'package:app/resource/utils/extensions.dart';
 import 'package:app/router/router.dart';
@@ -23,8 +22,8 @@ class RootApp extends StatelessWidget {
         builder: (context, state) {
           _style = AppStyle(screenSize: context.mq);
           return MaterialApp.router(
-            title: 'Sample App',
-            debugShowCheckedModeBanner: Env.kDebugMode,
+            title: 'Machine Test App',
+            debugShowCheckedModeBanner: false,
             theme: AppTheme.fromType(ThemeType.light).themeData,
             routerConfig: AppRouter.router,
           );

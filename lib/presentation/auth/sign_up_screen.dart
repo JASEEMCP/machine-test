@@ -69,19 +69,34 @@ class ScreenSignup extends StatelessWidget {
                 right: inset.sm,
                 bottom: inset.lg,
               ),
-              child: CustomButton(
-                onTap: () {
-                  if(_phnController.text.trim().isNotEmpty){
-                    context.read<LoginCubit>().loginUser(_phnController.text.trim());
-                  }
-                  else{
-                    context.showCustomSnackBar('Enter Phone Number');
-                  }
-                  // context.go(ScreenPath.signupOtp(_phnController.text.trim()));
+              child: BlocConsumer<LoginCubit, LoginState>(
+                listener: (context, state) {
+                  state.maybeWhen(
+                    orElse: () => null,
+                    success: () => context
+                        .go(ScreenPath.signupOtp(_phnController.text.trim())),
+                    error: () =>
+                        context.showCustomSnackBar('Invalid Phone Number'),
+                  );
                 },
-                text: 'Next',
-                bgColor: context.theme.kPink,
-                textColor: context.theme.kWhite,
+                builder: (context, state) {
+                  return CustomButton(
+                    isLoading: !state.isLoading,
+                    onTap: () {
+                      if (_phnController.text.trim().isNotEmpty) {
+                        context
+                            .read<LoginCubit>()
+                            .loginUser(_phnController.text.trim());
+                      } else {
+                        context.showCustomSnackBar('Enter Phone Number');
+                      }
+                      //
+                    },
+                    text: 'Next',
+                    bgColor: context.theme.kPink,
+                    textColor: context.theme.kWhite,
+                  );
+                },
               ),
             ),
           )
