@@ -114,9 +114,18 @@ class ChatScreen extends StatelessWidget {
                                 fontSize: 13,
                               ),
                             ),
-                            CustomText(
-                              txt: '10:00 AM',
-                              fontSize: 10,
+                            Row(
+                              spacing: inset.xxs,
+                              children: [
+                                CustomText(
+                                  txt: '10:00 AM',
+                                  fontSize: 10,
+                                ),
+                                Icon(
+                                  Icons.done_all,
+                                  size: 10,
+                                ),
+                              ],
                             ),
                           ],
                         ),

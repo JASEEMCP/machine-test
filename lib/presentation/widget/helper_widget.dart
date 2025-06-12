@@ -7,7 +7,8 @@ class CustomText extends StatelessWidget {
     this.fontSize,
     this.color,
     this.fontWeight,
-    this.maxLine, this.textAlign,
+    this.maxLine,
+    this.textAlign,
   });
   final String txt;
   final double? fontSize;
@@ -25,7 +26,7 @@ class CustomText extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.start,
       style: $style.text.textN14.copyWith(
         color: color,
-        fontSize: fontSize,
+        fontSize: $style.insets.customSize(fontSize ?? 14),
         fontWeight: fontWeight,
       ),
     );
