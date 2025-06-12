@@ -90,7 +90,7 @@ class AppRouter {
             },
             routes: [
               GoRoute(
-                path: ScreenPath.chat,
+                path: 'chat',
                 parentNavigatorKey: _rootNavigatorKey,
                 pageBuilder: (context, state) {
                   return CustomTransitionPage(

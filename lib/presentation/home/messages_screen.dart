@@ -94,7 +94,9 @@ class MessagesScreen extends StatelessWidget {
                       physics: NeverScrollableScrollPhysics(),
                       itemBuilder: (ctx, index) {
                         return ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            context.go(ScreenPath.chat());
+                          },
                           leading: CircleAvatar(
                             radius: 30,
                             backgroundColor: Colors.blueAccent,

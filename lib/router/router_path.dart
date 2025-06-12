@@ -14,7 +14,7 @@ class ScreenPath {
 
   /// Main routes
   
-  static const chat = '/chat';
+  static  chat() => _appendIdIntoCurrentPath('/chat');
   static const messages = '/messages';
 
 
