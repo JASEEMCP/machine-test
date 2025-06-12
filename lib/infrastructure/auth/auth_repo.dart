@@ -22,14 +22,14 @@ class AuthRepo implements AuthService {
   @override
   Future<Either<MainFailure, String>> loginUser(String phnNo) async {
     try {
-      final response = await dio.get(
-        EndPoints.chatData,
-        // data: {
-        //   "data": {
-        //     "type": "registration_otp_codes",
-        //     "attributes": {"phone": "+91$phnNo"}
-        //   }
-        // },
+      final response = await dio.post(
+        EndPoints.sendOtp,
+        data: {
+          "data": {
+            "type": "registration_otp_codes",
+            "attributes": {"phone": "+91$phnNo"}
+          }
+        },
       );
       if (response.statusCode == 200) {
         print(response.data);
